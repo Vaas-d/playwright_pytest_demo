@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest = "*"
+python-dotenv = "==0.21.0"
+pytest-playwright = "*"
+playwright = "*"
+allure-pytest = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
