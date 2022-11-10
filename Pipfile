@@ -9,6 +9,7 @@ python-dotenv = "==0.21.0"
 pytest-playwright = "*"
 playwright = "*"
 allure-pytest = "*"
+lorem-text = "*"
 
 [dev-packages]
 
