@@ -1,0 +1,42 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Nov 11 04:28:28 GMT 2022","Fri Nov 11 04:28:30 GMT 2022","1877","tests","test_buttons","TestButtons","","","test_buttons[chromium]","Test to verify the functionality of the double click button, Right Mouse Button click button and
+        dynamic button
+
+        :param test_setup:
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:55 GMT 2022","Fri Nov 11 04:28:55 GMT 2022","366","tests","test_text_boxes","TestTextBoxes","","","test_text_boxes[chromium]","Test to verify the input fields and output form on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"broken","Fri Nov 11 04:28:42 GMT 2022","Fri Nov 11 04:28:42 GMT 2022","517","tests","test_radio_buttons","TestRadioButtons","","","test_radio_buttons[chromium]","Test to verify the radio buttons on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:26 GMT 2022","Fri Nov 11 04:28:26 GMT 2022","667","tests","test_buttons","TestButtons","","","test_dynamic_button[chromium]","Test to verify the functionality of the dynamic button
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:36 GMT 2022","Fri Nov 11 04:28:40 GMT 2022","3982","tests","test_practice_form","TestPracticeForm","","","test_practice_form[chromium]",""
+"passed","Fri Nov 11 04:28:35 GMT 2022","Fri Nov 11 04:28:35 GMT 2022","499","tests","test_check_boxes","TestCheckBoxes","","","test_text_boxes[chromium]","Test to verify the checkboxes on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:23 GMT 2022","Fri Nov 11 04:28:23 GMT 2022","635","tests","test_buttons","TestButtons","","","test_rmb_click_button[chromium]","Test to verify the functionality of the Right Mouse Button click button
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:20 GMT 2022","Fri Nov 11 04:28:21 GMT 2022","863","tests","test_buttons","TestButtons","","","test_double_click_button[chromium]","Test to verify the functionality of the double click button
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Fri Nov 11 04:28:49 GMT 2022","Fri Nov 11 04:28:50 GMT 2022","944","tests","test_select_menu","TestSelect","","","test_select_menu[chromium]","Test to verify the dropdown menus on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
