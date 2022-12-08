@@ -1,9 +1,12 @@
 from playwright.sync_api import Page
 
+from pages.sidebar import Sidebar
 
-class Buttons:
+
+class Buttons(Sidebar):
 
     def __init__(self, page: Page):
+        Sidebar.__init__(self, page)
 
         self.page = page
 
