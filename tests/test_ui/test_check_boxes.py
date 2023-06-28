@@ -1,32 +1,45 @@
 import pytest
 
-from pages.check_box_page import CheckBox
+from pages.check_box_page import CheckBoxPage
+from utils.test_data import Data
+from utils.tools import take_screenshot
 
 
 class TestCheckBoxes:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
-        self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
-        self.checkbox = CheckBox(self.page)
+    def test_setup(self, new_page):
+        self.page = new_page
+        self.checkboxes = CheckBoxPage(self.page)
 
-        self.page.goto('https://demoqa.com/checkbox', wait_until='networkidle')
+        # click elements button on the homepage
+        self.checkboxes.click_elements_button()
 
-    def test_text_boxes(self, test_setup):
+        # click checkboxes section from the sidebar
+        self.checkboxes.go_to_check_box_section()
+
+    def test_checkboxes(self, test_setup):
         """Test to verify the checkboxes on the page
 
         :param test_setup: setting up the browser and page objects
         :return: None
         """
 
-        self.checkbox.expand_home_directory()
+        self.checkboxes.expand_home_directory()
 
-        self.checkbox.select_checkbox('Downloads')
-        self.checkbox.check_results('Downloads')
+        self.checkboxes.expand_desktop_directory()
 
-        self.checkbox.select_checkbox('documents')
-        self.checkbox.check_results('documents')
+        self.checkboxes.expand_documents_directory()
 
-        self.checkbox.select_checkbox('desktop')
-        self.checkbox.check_results('desktop')
+        self.checkboxes.expand_downloads_directory()
+
+        for item in Data.checkboxes:
+            self.checkboxes.select_checkbox(item)
+
+        results = self.checkboxes.get_checkbox_text()
+
+        for item in Data.checkboxes:
+            assert item.lower(
+            ) in results, f'Expected {item} to be in {results}'
+
+        take_screenshot(self.page, "checkboxes_result")

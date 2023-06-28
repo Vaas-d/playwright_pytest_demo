@@ -1,19 +1,22 @@
 import pytest
 
-from pages.radio_button_page import RadioButton
+from pages.radio_button_page import RadioButtonsPage
+from utils.tools import take_screenshot
 
 
 class TestRadioButtons:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
-        self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
-        self.radio = RadioButton(self.page)
+    def test_setup(self, new_page):
+        self.page = new_page
+        self.radio = RadioButtonsPage(self.page)
 
-        self.page.goto('https://demoqa.com/radio-button')
+        # click elements button on the homepage
+        self.radio.click_elements_button()
 
-    @pytest.mark.one
+        # click radio buttons section from the sidebar
+        self.radio.go_to_radio_button_section()
+
     def test_radio_buttons(self, test_setup):
         """Test to verify the radio buttons on the page
 
@@ -22,7 +25,13 @@ class TestRadioButtons:
         """
 
         self.radio.select_radio_button('Yes')
-        self.radio.check_result('Yes')
+        actual_message = self.radio.get_result_message()
+        assert actual_message == 'Yes'
+
+        take_screenshot(self.page, "radio_buttons_result")
 
         self.radio.select_radio_button('Impressive')
-        self.radio.check_result('Impressive')
+        actual_message = self.radio.get_result_message()
+        assert actual_message == 'Impressive'
+
+        take_screenshot(self.page, "radio_buttons_result")

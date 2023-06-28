@@ -1,41 +1,53 @@
-from pages.practice_form_page import PracticeForm
+import random
 
-test_data = ['Test User', 'email@email.com', 'gender', '5555555555', '24 August,1991', 'Economics',
-             'Sports, Reading, Music', '', 'Random test address', 'NCR Delhi']
+import pytest
+
+from pages.practice_form_page import PracticeFormPage
+
+from utils.test_data import Data
 
 
 class TestPracticeForm:
 
-    def test_practice_form(self, page):
+    @pytest.fixture
+    def test_setup(self, new_page):
+        self.page = new_page
+        self.form = PracticeFormPage(self.page)
 
-        self.page = page
-        self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
+        # click elements button on the homepage
+        self.form.click_forms_button()
 
-        self.form = PracticeForm(self.page)
-        self.page.goto('https://demoqa.com/automation-practice-form')
+        # click select menu section from the sidebar
+        self.form.go_to_practice_form_section()
 
-        self.form.set_first_name(test_data[0][:4])
+    def test_practice_form(self, test_setup):
 
-        self.form.set_last_name(test_data[0][5:])
+        self.form.set_first_name(Data.user_form_data[0][:4])
 
-        self.form.set_email(test_data[1])
+        self.form.set_last_name(Data.user_form_data[0][5:])
 
-        test_data[2] = self.form.select_gender()
+        self.form.set_email(Data.user_form_data[1])
 
-        self.form.set_mobile_number(test_data[3])
+        Data.user_form_data[2] = random.choice(Data.gender_list)
 
-        self.form.select_date_of_birth(test_data[4])
+        self.form.select_gender(Data.user_form_data[2])
 
-        self.form.set_subject(test_data[5])
+        self.form.set_mobile_number(Data.user_form_data[3])
+
+        self.form.select_date_of_birth(Data.user_form_data[4])
+
+        self.form.set_subject(Data.user_form_data[5])
 
         self.form.select_hobbies()
 
-        self.form.set_address(test_data[8])
+        self.form.set_address(Data.user_form_data[8])
 
-        self.form.select_state(test_data[9][:3])
+        self.form.select_state(Data.user_form_data[9][:3])
 
-        self.form.select_city(test_data[9][4:])
+        self.form.select_city(Data.user_form_data[9][4:])
 
         self.form.submit_form()
 
-        self.form.check_table_result(test_data)
+        actual_values = self.form.get_table_results(Data.user_form_data)
+
+        assert actual_values == Data.user_form_data

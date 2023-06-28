@@ -8,6 +8,7 @@ disable_loggers = []
 
 @pytest.fixture(scope='function')
 def new_page(playwright: Playwright, request):
+    browser = None
     browser_name = request.config.getoption('--browser_name')
     headless = False if request.config.getoption("--headed") else True
     if browser_name == "chromium":
@@ -18,7 +19,7 @@ def new_page(playwright: Playwright, request):
         browser = playwright.webkit.launch(headless=headless)
     context = browser.new_context(viewport={"width": 1920, "height": 1080})
     page = context.new_page()
-    page.goto(f'https://demoqa.com/buttons')
+    page.goto(f'https://demoqa.com')
     yield page
     browser.close()
 
@@ -33,8 +34,6 @@ def pytest_runtest_makereport(item, call) -> None:
             page = item.funcargs["new_page"]
 
             # ref: https://stackoverflow.com/q/29929244
-            allure.attach(
-                page.screenshot(full_page=True, type='png'),
-                name=f"{item.nodeid}.png",
-                attachment_type=allure.attachment_type.PNG
-            )
+            allure.attach(page.screenshot(full_page=True, type='png'),
+                          name=f"{item.nodeid}.png",
+                          attachment_type=allure.attachment_type.PNG)

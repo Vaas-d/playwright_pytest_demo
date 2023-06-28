@@ -2,17 +2,20 @@ import random
 
 from playwright.sync_api import Page
 
+from pages.forms_page import FormsPage
 
-class PracticeForm:
+
+class PracticeFormPage(FormsPage):
 
     def __init__(self, page: Page):
+        FormsPage.__init__(self, page)
 
         self.page = page
 
         self.__first_name_input = self.page.locator('[id="firstName"]')
         self.__last_name_input = self.page.locator('[id="lastName"]')
         self.__email_input = self.page.locator('[id="userEmail"]')
-        self.__gender_list = ["Male", "Female", "Other"]
+
         self.__mobile_number_input = self.page.locator('[id="userNumber"]')
         self.__dob_input = self.page.locator('[id="dateOfBirthInput"]')
         self.__subjects_field = self.page.locator('[id="subjectsContainer"]')
@@ -38,11 +41,9 @@ class PracticeForm:
     def set_email(self, text) -> None:
         self.__email_input.fill(text)
 
-    def select_gender(self) -> str:
-        gender = random.choice(self.__gender_list)
+    def select_gender(self, gender) -> None:
         radiobutton = self.page.locator(f'[type="radio"][value="{gender}"]')
         radiobutton.check(force=True)
-        return gender
 
     def set_mobile_number(self, text) -> None:
         self.__mobile_number_input.fill(text)
@@ -79,8 +80,9 @@ class PracticeForm:
     def submit_form(self) -> None:
         self.__submit_form_btn.click()
 
-    def check_table_result(self, list_) -> None:
+    def get_table_results(self, list_) -> list:
+        values = []
         for i in range(len(list_)):
             value_row = self.rows.nth(i).locator('td:nth-child(2)')
-            value = value_row.text_content()
-            assert value == list_[i], f'Expected {list_[i]}, got {value} instead'
+            values.append(value_row.text_content())
+        return values

@@ -1,8 +1,9 @@
 import pytest
 
-from pages.buttons_page import Buttons
+from pages.buttons_page import ButtonsPage
 from pytest import mark
 from utils.tools import take_screenshot
+from utils.test_data import Data
 
 
 class TestButtons:
@@ -10,7 +11,13 @@ class TestButtons:
     @pytest.fixture
     def test_setup(self, new_page):
         self.page = new_page
-        self.buttons = Buttons(self.page)
+        self.buttons = ButtonsPage(self.page)
+
+        # click elements button on the homepage
+        self.buttons.click_elements_button()
+
+        # click buttons section from the sidebar
+        self.buttons.go_to_buttons_section()
 
     @mark.one
     def test_double_click_button(self, test_setup):
@@ -22,7 +29,8 @@ class TestButtons:
 
         self.buttons.perform_double_click()
 
-        self.buttons.check_double_click_result()
+        actual_message = self.buttons.get_double_click_message()
+        assert actual_message == Data.double_click_message
         take_screenshot(self.page, "double_click")
 
     @mark.two
@@ -34,7 +42,8 @@ class TestButtons:
 
         self.buttons.perform_rmb_click()
 
-        self.buttons.check_rmb_click_result()
+        actual_message = self.buttons.get_rmb_click_message()
+        assert actual_message == Data.rmb_click_message
         take_screenshot(self.page, "rmb_click")
 
     def test_dynamic_button(self, test_setup):
@@ -46,27 +55,6 @@ class TestButtons:
 
         self.buttons.click_the_button()
 
-        self.buttons.check_click_result()
-        take_screenshot(self.page, "dynamic_click")
-
-    def test_buttons(self, test_setup):
-        """Test to verify the functionality of the double click button, Right Mouse Button click button and
-        dynamic button
-
-        :param test_setup:
-        :return: None
-        """
-        self.buttons.perform_double_click()
-
-        self.buttons.check_double_click_result()
-        take_screenshot(self.page, "double_click")
-
-        self.buttons.perform_rmb_click()
-
-        self.buttons.check_rmb_click_result()
-        take_screenshot(self.page, "rmb_click")
-
-        self.buttons.click_the_button()
-
-        self.buttons.check_click_result()
+        actual_message = self.buttons.get_dynamic_click_message()
+        assert actual_message == Data.dynamic_click_message
         take_screenshot(self.page, "dynamic_click")
