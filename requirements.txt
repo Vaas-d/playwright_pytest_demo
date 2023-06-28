@@ -1,0 +1,6 @@
+pytest==7.3.2
+python-dotenv==0.21.0
+pytest-playwright==0.3.3
+playwright==1.35.0
+allure-pytest==2.13.2
+lorem-text==2.1

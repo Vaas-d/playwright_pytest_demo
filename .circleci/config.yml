@@ -1,0 +1,43 @@
+# CircleCI configuration file
+
+version: 2.1
+
+orbs:
+  python: circleci/python@2.1.1
+
+executors:
+  python:
+    parameters:
+      tag:
+        type: string
+        default: latest
+    docker:
+      - image: cimg/python:<< parameters.tag >>
+
+jobs:
+  build and test:
+    working_directory: ~/pytest_api
+    executor:
+      name: python
+      tag: 3.11.4-browsers
+
+    steps:
+      - checkout
+      - run:
+          name: Install requirements
+          command: |
+            pip install --no-cache-dir -r requirements.txt --user --upgrade
+            playwright install chromium
+
+      - run:
+          name: Run tests
+          command: pytest
+
+workflows:
+  test_my_code:
+    jobs:
+      - build and test:
+          filters:
+            branches:
+              only: main
+
