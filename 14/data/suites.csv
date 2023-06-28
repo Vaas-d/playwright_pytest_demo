@@ -1,0 +1,56 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Jun 28 08:08:25 GMT 2023","Wed Jun 28 08:08:26 GMT 2023","798","tests.test_ui","test_select_menu","TestSelect","","","test_standard_multi_select","Test to verify the Standard multi select Menu on the select menu page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:29 GMT 2023","Wed Jun 28 08:08:31 GMT 2023","1415","tests.test_ui","test_text_boxes","TestTextBoxes","","","test_text_boxes","Test to verify the input fields and output form on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:21 GMT 2023","Wed Jun 28 08:08:22 GMT 2023","1138","tests.test_ui","test_select_menu","TestSelect","","","test_multiselect_dropdown","Test to verify the Multiselect drop down on the select menu page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:04 GMT 2023","Wed Jun 28 08:08:06 GMT 2023","1324","tests.test_ui","test_radio_buttons","TestRadioButtons","","","test_radio_buttons","Test to verify the radio buttons on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"broken","Wed Jun 28 08:07:59 GMT 2023","Wed Jun 28 08:08:00 GMT 2023","987","tests.test_ui","test_practice_form","TestPracticeForm","","","test_practice_form",""
+"passed","Wed Jun 28 08:07:55 GMT 2023","Wed Jun 28 08:07:56 GMT 2023","1242","tests.test_ui","test_check_boxes","TestCheckBoxes","","","test_checkboxes","Test to verify the checkboxes on the page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:13 GMT 2023","Wed Jun 28 08:08:14 GMT 2023","803","tests.test_ui","test_select_menu","TestSelect","","","test_select_one_dropdown","Test to verify the Select One dropdown on the select menu page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:07:43 GMT 2023","Wed Jun 28 08:07:44 GMT 2023","650","tests.test_ui","test_buttons","TestButtons","","","test_double_click_button","Test to verify the functionality of the double click button
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:17 GMT 2023","Wed Jun 28 08:08:18 GMT 2023","710","tests.test_ui","test_select_menu","TestSelect","","","test_old_style_select_menu","Test to verify the Old Style Select Menu on the select menu page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:07:51 GMT 2023","Wed Jun 28 08:07:52 GMT 2023","713","tests.test_ui","test_buttons","TestButtons","","","test_dynamic_button","Test to verify the functionality of the dynamic button
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:07:47 GMT 2023","Wed Jun 28 08:07:48 GMT 2023","582","tests.test_ui","test_buttons","TestButtons","","","test_rmb_click_button","Test to verify the functionality of the Right Mouse Button click button
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Wed Jun 28 08:08:09 GMT 2023","Wed Jun 28 08:08:10 GMT 2023","972","tests.test_ui","test_select_menu","TestSelect","","","test_select_value_dropdown","Test to verify the Select Value dropdown on the select menu page
+
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
