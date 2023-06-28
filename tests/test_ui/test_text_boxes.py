@@ -43,5 +43,7 @@ class TestTextBoxes:
 
         assert actual_username == f'Name:{Data.username}'
         assert actual_email == f'Email:{Data.email}'
-        assert actual_current_address == f'Current Address :{Data.current_address} '
-        assert actual_permanent_address == f'Permananet Address :{Data.permanent_address}'
+        assert actual_current_address == \
+               f'Current Address :{Data.current_address} '
+        assert actual_permanent_address == \
+               f'Permananet Address :{Data.permanent_address}'
